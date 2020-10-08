@@ -1,6 +1,7 @@
+// Searches for the target number in the data array and returns the index where it is found, otherwise
+//will return -1 when not found.
 public class Problem1 {
 
-    // Do not change signature (function name, parameters)
     public static int binarySearch(int[] data, int target) {
         // If the null or there is nothing in the array, then return -1 (target not found)
         if (data == null || data.length == 0) {
