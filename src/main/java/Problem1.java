@@ -3,30 +3,26 @@
 public class Problem1 {
 
     public static int binarySearch(int[] data, int target) {
-        // If the null or there is nothing in the array, then return -1 (target not found)
-        if (data == null || data.length == 0) {
-            return -1;                  // If there is nothing in the list or null is inputed,
-        }                               //-1 will be returned
+        if (data == null || data.length == 0) {    // If null or there is nothing in the array,
+            return -1;                             //then return -1 (target not found)
+        }
 
-        int low = 0;                    // Lowest integer is always 0 in sorted array
-        int high = data.length - 1;     // Highest integer is one less than the length (for proper index)
-        int middle;                     // Middle integer is initialized at line 16 to reduce redundancy
-        int match = -1;                 // If there is no match in the array with the target, it will
-                                        //simply return -1
+        int low = 0;                    // Lowest integer
+        int high = data.length - 1;     // Highest integer
+        int middle;                     // Middle integer is initialized at line 16
+        int match = -1;                 // If no match, returns -1
 
-        while (low <= high) {           // While there are still items to check in the list
-            // Recalculate middle in every loop
-            middle = (low + high) / 2;
-
-            if (data[middle] == target) {           // If the value at the middle index matches target,
-                match = middle;                     //then set equal to the returned index
+        while (low <= high) {                       // While there are items to check in list
+            middle = (low + high) / 2;              // Recalculate middle
+            if (data[middle] == target) {           // Returns middle index if its value matches target
+                match = middle;
                 break;
 
-            } else if (data[middle] > target) {     // If value at the middle index is too big, set the
-                high = middle - 1;                  //new high index as the middle value - 1
+            } else if (data[middle] > target) {     // Resets new high when value at middle index is bigger than target
+                high = middle - 1;
 
-            } else {                                // If value at the middle index is too small, set the
-                low = middle + 1;                   //new low to the middle index + 1
+            } else {                                // Resets new low when value at middle index is smaller than target
+                low = middle + 1;
             }
         }
 
